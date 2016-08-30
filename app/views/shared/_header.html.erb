@@ -1,5 +1,10 @@
 <header class='nav_bar navbar-fixed-top navbar-inverse'>
   <div class="container">
+
+    <!-- <div class="navbar-header"> -->
+      <%= link_to "Dress 2 Impress", root_path, :class=> "navbar-brand" %>
+    <!-- </div> -->
+
     <nav>
       <ul class='nav navbar-nav navbar-right'>
         <%if !user_signed_in? %>
@@ -7,7 +12,7 @@
           <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% else %>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to "Wardrobe", user_path(current_user) %></li>
         <% end %>
       </ul>
     </nav>

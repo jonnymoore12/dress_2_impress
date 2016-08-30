@@ -1,1 +1,12 @@
-Welcome to <%=@user.name%>'s wardrobe
+Welcome to <%=@user.name%>'s wardrobe.
+<br />
+<% if @user.dilemmas.all.empty? %>
+  <%=@user.name%>'s wardrobe is empty :(
+<% else %>
+  <% @user.dilemmas.all.each do |dilemma|%>
+    <%= image_tag(dilemma.option1.url(:medium), :class => "img-rounded") %>
+    <%= image_tag(dilemma.option2.url(:medium), :class => "img-rounded") %>
+    <br />
+    <%= dilemma.occasion %>
+  <% end %>
+<% end %>

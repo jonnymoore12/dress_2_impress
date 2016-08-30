@@ -1,10 +1,12 @@
-<%= link_to "Add a dilemma", new_dilemma_path %>
+<%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn btn-danger" %>
 <% if @dilemmas.any? %>
 
   <% @dilemmas.each do |dilemma| %>
+  <div>
     <h3> <%= dilemma.occasion %> </h3>
     <%= image_tag dilemma.option1.url(:medium) %>
     <%= image_tag dilemma.option2.url(:medium) %>
+  </div>
   <% end %>
 <% else %>
   <h2>This page is naked</h2>
