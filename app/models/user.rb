@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  validates :name, presence: true
   # before_action :authenticate_user!
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
