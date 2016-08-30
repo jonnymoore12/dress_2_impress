@@ -1,4 +1,6 @@
+<%= link_to "Add a dilemma", new_dilemma_path %>
 <% if @dilemmas.any? %>
+
   <% @dilemmas.each do |dilemma| %>
     <h3> <%= dilemma.occasion %> </h3>
     <%= image_tag dilemma.option1.url(:medium) %>
@@ -7,4 +9,3 @@
 <% else %>
   <h2>This page is naked</h2>
 <% end %>
-<%= link_to "Add a dilemma", new_dilemma_path %>
