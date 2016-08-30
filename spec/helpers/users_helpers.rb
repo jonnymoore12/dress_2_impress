@@ -22,3 +22,12 @@ def sign_in(email: "test@gmail.com",
   fill_in "Password", with: 'password123'
   click_button 'Log in'
 end
+
+def add_dilemma
+  visit '/'
+  click_link 'Add a dilemma'
+  fill_in 'Occasion', with: 'Restaurant first date'
+  attach_file 'dilemma_option1', Rails.root + 'spec/fixtures/flowers.jpg'
+  attach_file 'dilemma_option2', Rails.root + 'spec/fixtures/sumo.jpg'
+  click_button 'Create Dilemma'
+end
