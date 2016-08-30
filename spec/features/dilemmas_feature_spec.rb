@@ -17,6 +17,16 @@ feature 'Dilemma' do
       expect(page).to have_content 'Restaurant first date'
       expect(page).not_to have_content 'This page is naked'
     end
+  end
 
+  context 'adding dilemmas' do
+    scenario 'user can add a dilemma' do
+      visit '/dilemmas'
+      click_link 'Add a dilemma'
+      fill_in 'Occasion', with: 'Restaurant first date'
+      click_button 'Create Dilemma'
+      expect(page).to have_content 'Restaurant first date'
+      expect(current_path).to eq '/dilemmas'
+    end
   end
 end
