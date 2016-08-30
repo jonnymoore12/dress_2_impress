@@ -5,7 +5,7 @@ feature 'Dilemma' do
     it 'confirms that there are no dilemmas' do
       visit '/dilemmas'
       expect(page).to have_content 'This page is naked'
-      expect(page).to have_link 'Add a dilemma'
+      expect(page).to have_button 'Add a dilemma'
     end
   end
   context 'dilemma has been added' do
@@ -24,8 +24,8 @@ feature 'Dilemma' do
       sign_up
       add_dilemma
       expect(page).to have_content 'Restaurant first date'
-      expect(page).to have_css "img[src*='flowers.jpg']"
-      expect(page).to have_css "img[src*='sumo.jpg']"
+      expect(page).to have_css "img[src*='Gok1.jpg']"
+      expect(page).to have_css "img[src*='Gok2.jpg']"
       expect(current_path).to eq '/dilemmas'
     end
   end
