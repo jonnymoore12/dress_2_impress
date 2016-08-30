@@ -21,12 +21,8 @@ feature 'Dilemma' do
 
   context 'adding dilemmas' do
     scenario 'user can add a dilemma' do
-      visit '/dilemmas'
-      click_link 'Add a dilemma'
-      fill_in 'Occasion', with: 'Restaurant first date'
-      attach_file 'dilemma_option1', Rails.root + 'spec/fixtures/flowers.jpg'
-      attach_file 'dilemma_option2', Rails.root + 'spec/fixtures/sumo.jpg'
-      click_button 'Create Dilemma'
+      sign_up
+      add_dilemma
       expect(page).to have_content 'Restaurant first date'
       expect(page).to have_css "img[src*='flowers.jpg']"
       expect(page).to have_css "img[src*='sumo.jpg']"
