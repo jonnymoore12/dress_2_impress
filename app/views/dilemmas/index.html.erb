@@ -1,0 +1,8 @@
+<% if @dilemmas.any? %>
+  <% @dilemmas.each do |dilemma| %>
+    <h3> <%= dilemma.occasion %> </h3>
+  <% end %>
+<% else %>
+  <h2>This page is naked</h2>
+<% end %>
+<a href='#'>Add a dilemma</a>
