@@ -17,12 +17,12 @@ I would like to be able to see dilemmas uploaded by ISDs.
 ```
 As an Insecure Self Dresser's Pal (ISDP)
 So I can help them not make a complete idiot of themselves
-I would like to be able to vote on dilemmas (one outfit hot, one not).
+I would like to be able to select my fashion preferences for dilemmas (one outfit hot, one not).
 ```
 ```
 As an Insecure Self Dresser
 So I can choose the "right" outfit
-I would like to see the votes on my dilemma (and see which was most popular).
+I would like to see the votes on my dilemma (see which outfit is most popular).
 ```
 ```
 As an Insecure Self Dresser
@@ -30,40 +30,40 @@ So I can get the most relevant recommendations
 I would like to be able to describe the occasion my outfit is needed for.
 ```
 ```
-As an Insecure Self Dresser
+As a User
 So I can join in on the fun
 I would like to be able to sign up.
 ```
 ```
 As an Insecure Self Dresser
-So I can see can keep track of my fashion decisions
-I would like my uploaded pictures to be associated with my account.
+So I can keep a track record of my fashion dilemmas
+I would like my uploaded dilemmas to be associated with my account.
 ```
 ```
 As a User
-So I can see a historical record of an ISD's fashion decisions
+So I can see a historical record of an ISD's fashion dilemmas
 I would like to be able to view their profiles.
 ```
 ```
 As an Insecure Self Dresser
-So I can inform my Pal of the consequence of their choice
+So I can inform my Pals of the consequence of their choices
 I would like to be able to rate how successful my outfit was (traffic lights).
-```
-```
-As an Insecure Self Dresser's Pal
-So I know how accurate my advice was
-I would like to receive an average score (points?) on my outfit recommendations.
 ```
 ### Additional User Stories
 ```
 As an Insecure Self Dresser
-So I can make a clear decision
-I would like to be able to upload two outfits for comparison.
-```
-```
-As an Insecure Self Dresser
-To speed up the process
+So I can get speedy input for my dilemma
 I would like there to be dropdown options for the occasion.
+```
+```
+As an Insecure Self Dresser's Pal
+So I know how accurate my advice was
+I would like to receive points for each outfit recommendation.
+```
+```
+As a User
+So I can inspect an ISDP's fashion credentials
+I would like to be able to view their fashion score.
 ```
 ```
 As a User
