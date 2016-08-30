@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 gem 'rspec-rails'
 gem 'capybara'
+
+gem 'paperclip'
+
 gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

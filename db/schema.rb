@@ -11,15 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830132528) do
+ActiveRecord::Schema.define(version: 20160830144036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dilemmas", force: :cascade do |t|
     t.string   "occasion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "option1_file_name"
+    t.string   "option1_content_type"
+    t.integer  "option1_file_size"
+    t.datetime "option1_updated_at"
+    t.string   "option2_file_name"
+    t.string   "option2_content_type"
+    t.integer  "option2_file_size"
+    t.datetime "option2_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
