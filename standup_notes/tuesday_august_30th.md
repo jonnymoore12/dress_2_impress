@@ -7,22 +7,27 @@ Team: [Sam, Alex, Julie, Alban, Jonny]
 ```
 As an Insecure Self Dresser (ISD)
 So I can get opinions on my outfit
-I would like to be able to upload a picture of my outfit.
+I would like to be able to upload a fashion dilemma.
 ```
 ```
 As a User
-So I can see what fashion conundrums the community are experiencing
-I would like to be able to see pictures uploaded by ISDs.
+So I can see what fashion dilemmas the community are experiencing
+I would like to be able to see dilemmas uploaded by ISDs.
 ```
 ```
 As an Insecure Self Dresser's Pal (ISDP)
 So I can help them not make a complete idiot of themselves
-I would like to be able to vote on outfits (hot or not).
+I would like to be able to vote on dilemmas (one outfit hot, one not).
 ```
 ```
 As an Insecure Self Dresser
 So I can choose the "right" outfit
-I would like to see votes (hot or not) on my outfit.
+I would like to see the votes on my dilemma (and see which was most popular).
+```
+```
+As an Insecure Self Dresser
+So I can get the most relevant recommendations
+I would like to be able to describe the occasion my outfit is needed for.
 ```
 ```
 As an Insecure Self Dresser
@@ -54,4 +59,14 @@ I would like to receive an average score (points?) on my outfit recommendations.
 As an Insecure Self Dresser
 So I can make a clear decision
 I would like to be able to upload two outfits for comparison.
+```
+```
+As an Insecure Self Dresser
+To speed up the process
+I would like there to be dropdown options for the occasion.
+```
+```
+As a User
+To speed up sign in
+I would like to be able to sign in via facebook.
 ```
