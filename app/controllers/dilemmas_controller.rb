@@ -9,7 +9,7 @@ class DilemmasController < ApplicationController
   end
 
   def create
-    @dilemma = Dilemma.new(dilemma_params)
+    @dilemma = current_user.dilemmas.new(dilemma_params)
     if @dilemma.save
       redirect_to '/dilemmas'
     else
