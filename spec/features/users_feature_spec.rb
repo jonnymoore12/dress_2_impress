@@ -18,4 +18,18 @@ feature 'Signing in and out' do
     end
   end
 
+  context 'signing up' do
+    scenario 'cannot without an email' do
+      visit '/dilemmas'
+      sign_up(email: '')
+      expect(page).to have_content("Email can't be blank")
+    end
+    scenario 'cannot without a name' do
+      visit '/dilemmas'
+      sign_up(name: '')
+      expect(page).to have_content("Name can't be blank")
+    end
+  end
+
+
 end
