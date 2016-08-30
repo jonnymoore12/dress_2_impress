@@ -15,7 +15,7 @@ feature 'Dilemma' do
     it 'displays dilemma' do
       visit '/dilemmas'
       expect(page).to have_content 'Restaurant first date'
-      expect(page).not_to have_content 'This page is naked'
+      expect(page).not_to have_content 'This page is naked§'
     end
   end
 
@@ -24,8 +24,8 @@ feature 'Dilemma' do
       visit '/dilemmas'
       click_link 'Add a dilemma'
       fill_in 'Occasion', with: 'Restaurant first date'
-      attach_file 'option_1', Rails.root + 'spec/fixtures/flowers.jpg'
-      attach_file 'option_2', Rails.root + 'spec/fixtures/sumo.jpg'
+      attach_file 'dilemma_option1', Rails.root + 'spec/fixtures/flowers.jpg'
+      attach_file 'dilemma_option2', Rails.root + 'spec/fixtures/sumo.jpg'
       click_button 'Create Dilemma'
       expect(page).to have_content 'Restaurant first date'
       expect(page).to have_css "img[src*='flowers.jpg']"

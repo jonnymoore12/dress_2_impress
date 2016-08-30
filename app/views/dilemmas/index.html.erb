@@ -1,6 +1,8 @@
 <% if @dilemmas.any? %>
   <% @dilemmas.each do |dilemma| %>
     <h3> <%= dilemma.occasion %> </h3>
+    <%= image_tag dilemma.option1.url(:medium) %>
+    <%= image_tag dilemma.option2.url(:medium) %>
   <% end %>
 <% else %>
   <h2>This page is naked</h2>

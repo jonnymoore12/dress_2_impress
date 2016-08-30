@@ -20,6 +20,6 @@ class DilemmasController < ApplicationController
 private
 
   def dilemma_params
-    params.require(:dilemma).permit(:occasion)
+    params.require(:dilemma).permit(:occasion, :option1, :option2)
   end
 end

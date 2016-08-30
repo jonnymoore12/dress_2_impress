@@ -1,5 +1,9 @@
-<%= form_for @dilemma do |f| %>
+<%= form_for @dilemma, html: {multipart: true} do |f| %>
   <%= f.label :occasion %>
   <%= f.text_field :occasion %>
+  <%= f.label :option1 %>
+  <%= f.file_field :option1 %>
+  <%= f.label :option2 %>
+  <%= f.file_field :option2 %>
   <%= f.submit %>
 <% end %>
