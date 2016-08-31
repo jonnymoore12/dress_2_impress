@@ -10,11 +10,19 @@ feature 'Signing in and out' do
   end
 
   context 'Users signed in' do
-    scenario 'Sign out link should be visible' do
+
+    before do
       sign_up
+    end
+
+    scenario 'sign out link should be visible' do
       expect(page).to have_content 'Sign out'
       expect(page).not_to have_content 'Sign up'
       expect(current_path).to eq '/'
+    end
+
+    scenario 'users name is displayed' do
+      expect(page).to have_content 'Gokwan'
     end
   end
 
