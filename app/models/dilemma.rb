@@ -6,5 +6,7 @@ class Dilemma < ActiveRecord::Base
   validates_attachment_content_type :option2, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :user
-  has_many :votes, dependent: :destroy
+  has_many :votes,
+            -> { extending WithUserAssociationExtension },
+            dependent: :destroy
 end

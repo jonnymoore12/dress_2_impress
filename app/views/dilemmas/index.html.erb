@@ -7,11 +7,12 @@
 
   <% @dilemmas.each do |dilemma| %>
   <div>
-    <h3 onclick="paintIt(this, '#990000')"> <%= dilemma.occasion %> </h3>
-    <%= form_tag(dilemma_votes_path(dilemma)) do |f| %>
-      <%= image_submit_tag(dilemma.option1.url(:medium), name: 'Choice', value: 1) %>
-      <%= image_submit_tag(dilemma.option2.url(:medium), name: 'Choice', value: 2)%>
+    <h3> <%= dilemma.occasion %> </h3>
+    <%= form_tag(dilemma_votes_path(dilemma), :method=>'post') do |f| %>
+      <%= image_submit_tag(dilemma.option1.url(:medium), name: "choice", value: 1) %>
+      <%= image_submit_tag(dilemma.option2.url(:medium), name: "choice", value: 2)%>
     <% end %>
+
   <% end %>
   </div>
 

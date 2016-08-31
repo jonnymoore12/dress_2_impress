@@ -26,8 +26,8 @@ feature 'Dilemma' do
     end
     scenario 'User can add a dilemma' do
       expect(page).to have_content 'Restaurant first date'
-      expect(page).to have_css "img[src*='Gok1.jpg']"
-      expect(page).to have_css "img[src*='Gok2.jpg']"
+      expect(page).to have_css "input[src*='Gok1.jpg']"
+      expect(page).to have_css "input[src*='Gok2.jpg']"
       expect(current_path).to eq '/dilemmas'
     end
 
