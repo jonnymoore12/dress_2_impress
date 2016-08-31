@@ -1,9 +1,9 @@
-<%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn btn-danger" %>
+<%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn tacky-btn" %>
 <% if @dilemmas.any? %>
 
   <% @dilemmas.each do |dilemma| %>
   <div>
-    <h3> <%= dilemma.occasion %> </h3>
+    <h3 onclick="paintIt(this, '#990000')"> <%= dilemma.occasion %> </h3>
     <%= image_tag dilemma.option1.url(:medium) %>
     <%= image_tag dilemma.option2.url(:medium) %>
   </div>

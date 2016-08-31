@@ -17,6 +17,14 @@ class DilemmasController < ApplicationController
     end
   end
 
+  def destroy
+    @dilemma = Dilemma.find(params[:id])
+    @dilemma.destroy
+    flash[:notice] = 'Dilemma deleted'
+    redirect_to "/users/#{current_user.id}"
+
+  end
+
 private
 
   def dilemma_params
