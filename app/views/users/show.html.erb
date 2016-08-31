@@ -8,5 +8,6 @@ Welcome to <%=@user.name%>'s wardrobe.
     <%= image_tag(dilemma.option2.url(:medium), :class => "img-rounded") %>
     <br />
     <%= dilemma.occasion %>
+    <%= link_to "Delete", dilemma_path(dilemma), method: :delete %>
   <% end %>
 <% end %>
