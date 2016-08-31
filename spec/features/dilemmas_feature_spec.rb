@@ -10,7 +10,7 @@ feature 'Dilemma' do
   end
   context 'dilemma has been added' do
     before do
-      add_dilemma
+      Dilemma.create!(occasion: 'Restaurant first date')
     end
     it 'displays dilemma' do
       visit '/dilemmas'

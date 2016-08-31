@@ -7,6 +7,4 @@ class Dilemma < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :option1, presence: true
-  validates :option2, presence: true
 end
