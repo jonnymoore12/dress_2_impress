@@ -17,7 +17,7 @@ feature 'User Profiles page' do
   end
 
   context 'At least one historical dilemma' do
-    scenario 'Users dilemmas are displayed' do
+    scenario "User's dilemmas are displayed" do
       sign_in
       add_dilemma
       click_link "Wardrobe"
