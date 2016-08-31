@@ -1,7 +1,8 @@
 class DilemmasController < ApplicationController
-
+  before_action :authenticate_user!, :except => [:index, :show]
   def index
     @dilemmas = Dilemma.all
+    @vote = Vote.new
   end
 
   def new

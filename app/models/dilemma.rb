@@ -7,4 +7,8 @@ class Dilemma < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :votes,
+            -> { extending WithUserAssociationExtension },
+            dependent: :destroy
+
 end
