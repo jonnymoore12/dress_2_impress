@@ -1,26 +1,25 @@
 require 'rails_helper'
 
 feature 'Dilemma' do
-  context 'no dilemmas added' do
+  context 'No dilemmas added' do
     it 'confirms that there are no dilemmas' do
       visit '/dilemmas'
       expect(page).to have_content 'This page is naked'
-      expect(page).to have_button 'Add a dilemma'
     end
   end
-  context 'dilemma has been added' do
+  context 'Dilemma has been added' do
     before do
       Dilemma.create!(occasion: 'Restaurant first date')
     end
     it 'displays dilemma' do
       visit '/dilemmas'
       expect(page).to have_content 'Restaurant first date'
-      expect(page).not_to have_content 'This page is naked§'
+      expect(page).not_to have_content 'This page is naked'
     end
   end
 
-  context 'adding dilemmas' do
-    scenario 'user can add a dilemma' do
+  context 'User signed in' do
+    scenario 'User can add a dilemma' do
       sign_up
       add_dilemma
       expect(page).to have_content 'Restaurant first date'
@@ -30,5 +29,11 @@ feature 'Dilemma' do
     end
   end
 
-
+  context 'No user signed in' do
+    scenario 'User cannot add a dilemma' do
+      sign_up
+      expect(current_path).to eq '/'
+      expect(page).not_to have_content 'Add a dilemma'
+    end
+  end
 end

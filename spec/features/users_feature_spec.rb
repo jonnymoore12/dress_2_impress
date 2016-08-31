@@ -10,7 +10,7 @@ feature 'Signing in and out' do
   end
 
   context 'Users signed in' do
-    scenario 'sign out link should be visible' do
+    scenario 'Sign out link should be visible' do
       sign_up
       expect(page).to have_content 'Sign out'
       expect(page).not_to have_content 'Sign up'
@@ -18,13 +18,13 @@ feature 'Signing in and out' do
     end
   end
 
-  context 'signing up' do
-    scenario 'cannot without an email' do
+  context 'Signing up' do
+    scenario 'Cannot sign up without an email' do
       visit '/dilemmas'
       sign_up(email: '')
       expect(page).to have_content("Email can't be blank")
     end
-    scenario 'cannot without a name' do
+    scenario 'Cannot sign up without a name' do
       visit '/dilemmas'
       sign_up(name: '')
       expect(page).to have_content("Name can't be blank")

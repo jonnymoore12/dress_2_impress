@@ -1,4 +1,8 @@
-<%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn btn-danger" %>
+<% if user_signed_in? %>
+  <%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn btn-danger" %>
+<% else %>
+<% end %>
+
 <% if @dilemmas.any? %>
 
   <% @dilemmas.each do |dilemma| %>
