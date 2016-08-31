@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :users
-  resources :dilemmas
+  resources :dilemmas do
+    resources :votes
+  end
   # Example resource route with options:
   #   resources :products do
   #     member do

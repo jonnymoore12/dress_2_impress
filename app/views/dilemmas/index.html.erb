@@ -11,6 +11,11 @@
     <%= image_tag dilemma.option1.url(:medium) %>
     <%= image_tag dilemma.option2.url(:medium) %>
   </div>
+  <%= form_tag(dilemma_votes_path(dilemma), method: "post") do |f| %>
+  <%= submit_tag 'Option 1' %>
+  <%= submit_tag 'Option 2' %>
+  <% end %>
+
   <% end %>
 <% else %>
   <h2>This page is naked</h2>

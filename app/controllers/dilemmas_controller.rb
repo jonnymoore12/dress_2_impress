@@ -2,6 +2,7 @@ class DilemmasController < ApplicationController
 
   def index
     @dilemmas = Dilemma.all
+    @vote = Vote.new
   end
 
   def new
