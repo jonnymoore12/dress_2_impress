@@ -1,5 +1,10 @@
 <div class='dilemmadiv'>
-<h3> <%= @dilemma.occasion %> </h3>
+  <%= @dilemma.occasion %>
   <%= image_tag(@dilemma.option1.url(:medium)) %>
   <%= image_tag(@dilemma.option2.url(:medium)) %>
+
+  Option 1: <%= @vote1_count %>
+  Option 2: <%= @vote2_count %>
+  <%= link_to 'Next Dilemma', dilemmas_path %>
+
 </div>
