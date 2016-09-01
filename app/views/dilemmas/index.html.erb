@@ -1,13 +1,19 @@
-<%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn tacky-btn" %>
-<% if @dilemmas.any? %>
-
-  <% @dilemmas.each do |dilemma| %>
-  <div>
-    <h3 onclick="paintIt(this, '#990000')"> <%= dilemma.occasion %> </h3>
-    <%= image_tag dilemma.option1.url(:medium) %>
-    <%= image_tag dilemma.option2.url(:medium) %>
-  </div>
+<% if user_signed_in? %>
+  <%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn tacky-btn" %>
+  <% if @dilemmas.any? %>
+    <% @dilemmas_not_yet_voted = @dilemmas.select { |dilemma| current_user.has_voted?(dilemma) == false } %>
+    <% if !@dilemmas_not_yet_voted.empty? %>
+      <div class='dilemmadiv'>
+      <h3> <%= @dilemmas_not_yet_voted[0].occasion %> </h3>
+      <%= form_tag(dilemma_votes_path(@dilemmas_not_yet_voted[0]), :method=>'post') do |f| %>
+        <%= image_submit_tag(@dilemmas_not_yet_voted[0].option1.url(:medium), name: "choice", value: 1) %>
+        <%= image_submit_tag(@dilemmas_not_yet_voted[0].option2.url(:medium), name: "choice", value: 2) %>
+      </div>
+      <% end %>
+    <% else %>
+      <%= flash[:alert] = 'No more dilemmas. The world is fashionable!' %>
+    <% end %>
   <% end %>
 <% else %>
-  <h2>This page is naked</h2>
+  This page is naked. ADD INSTRUCTIONS FOR USERS NOT SIGNED.
 <% end %>

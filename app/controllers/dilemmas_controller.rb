@@ -1,7 +1,8 @@
 class DilemmasController < ApplicationController
-
+  before_action :authenticate_user!, :except => [:index, :show]
   def index
     @dilemmas = Dilemma.all
+    @vote = Vote.new
   end
 
   def new
@@ -22,7 +23,10 @@ class DilemmasController < ApplicationController
     @dilemma.destroy
     flash[:notice] = 'Dilemma deleted'
     redirect_to "/users/#{current_user.id}"
+  end
 
+  def show
+    @dilemma = Dilemma.find(params[:id])
   end
 
 private

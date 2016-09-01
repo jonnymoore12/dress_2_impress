@@ -1,21 +1,20 @@
 require 'rails_helper'
 
 feature 'Dilemma' do
-  context 'no dilemmas added' do
+  context 'No dilemmas added' do
     it 'confirms that there are no dilemmas' do
       visit '/dilemmas'
       expect(page).to have_content 'This page is naked'
-      expect(page).to have_button 'Add a dilemma'
     end
   end
 
-  context 'dilemma has been added' do
+  context 'Dilemma has been added' do
     before do
       sign_up
       add_dilemma
     end
+
     it 'displays dilemma' do
-      visit '/dilemmas'
       expect(page).to have_content 'Restaurant first date'
       expect(page).not_to have_content 'This page is naked'
     end
@@ -27,12 +26,13 @@ feature 'Dilemma' do
       sign_up
       add_dilemma
     end
-    scenario 'user can add a dilemma' do
+    scenario 'User can add a dilemma' do
       expect(page).to have_content 'Restaurant first date'
-      expect(page).to have_css "img[src*='Gok1.jpg']"
-      expect(page).to have_css "img[src*='Gok2.jpg']"
+      expect(page).to have_css "input[src*='Gok1.jpg']"
+      expect(page).to have_css "input[src*='Gok2.jpg']"
       expect(current_path).to eq '/dilemmas'
     end
+
     scenario 'user can delete their own dilemma' do
       click_link 'Wardrobe'
       @current_path = current_path
@@ -54,4 +54,36 @@ feature 'Dilemma' do
       expect(page).not_to have_css "img[src*='Gok1.jpg']"
     end
   end
+
+  context 'No user signed in' do
+    scenario 'User cannot add a dilemma' do
+      visit '/'
+      expect(current_path).to eq '/'
+      expect(page).not_to have_content 'Add a dilemma'
+    end
+  end
+
+  context 'Displaying dilemmas' do
+    before do
+      sign_up
+      add_dilemma
+    end
+
+    xscenario 'Signed in user does not see dilemmas they have already voted on' do
+      click_link 'Sign out'
+      sign_up(name: "test2", email: "else@test.com", password: "123456", password_confirmation: "123456")
+      first('.dilemmadiv').click_button('1')
+      #BELOW LINE WILL WORK WHEN SAM AND ALBIE IMPLEMENT VOTE REDIRECT
+      click_button 'Next dilemma'
+      expect(page).not_to have_content 'Restaurant first date'
+      expect(page).to have_content 'No more dilemmas'
+    end
+
+    scenario 'Dilemmas are displayed one at a time' do
+      add_dilemma(occasion: "Cinema date")
+      expect(page).to have_content "Restaurant first date"
+      expect(page).not_to have_content "Cinema date"
+    end
+  end
+
 end

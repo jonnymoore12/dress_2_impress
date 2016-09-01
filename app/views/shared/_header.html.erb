@@ -1,4 +1,4 @@
-<header class='nav_bar navbar-fixed-top navbar-inverse'>
+<header class='nav_bar navbar-fixed-top navbar-cool'>
   <div class="container">
 
     <!-- <div class="navbar-header"> -->
@@ -11,8 +11,9 @@
           <li><%= link_to "Sign in", new_user_session_path %></li>
           <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% else %>
-          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <li><div class="navbar-brand"><%= current_user.name %> is contemplating what to wear</div></li>
           <li><%= link_to "Wardrobe", user_path(current_user) %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% end %>
       </ul>
     </nav>
