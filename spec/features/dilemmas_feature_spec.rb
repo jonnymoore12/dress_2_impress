@@ -58,18 +58,20 @@ feature 'Dilemma' do
     before do
       sign_up
       add_dilemma
-      add_dilemma("Cinema date")
     end
 
     scenario 'Signed in user does not see dilemmas they have already voted on' do
       click_link 'Sign out'
       sign_up(name: "test2", email: "else@test.com", password: "123456", password_confirmation: "123456")
       first('.dilemmadiv').click_button('1')
+      #BELOW LINE WILL WORK WHEN SAM AND ALBIE IMPLEMENT VOTE REDIRECT
+      click_button 'Next dilemma'
       expect(page).not_to have_content 'Restaurant first date'
-      expect(page).to have_content 'Cinema date'
+      expect(page).to have_content 'No more dilemmas'
     end
 
     scenario 'Dilemmas are displayed one at a time' do
+      add_dilemma(occasion: "Cinema date")
       expect(page).to have_content "Restaurant first date"
       expect(page).not_to have_content "Cinema date"
     end
