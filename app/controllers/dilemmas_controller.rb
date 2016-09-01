@@ -27,6 +27,8 @@ class DilemmasController < ApplicationController
 
   def show
     @dilemma = Dilemma.find(params[:id])
+    @vote1_count = @dilemma.votes.where(choice: '1').count
+    @vote2_count = @dilemma.votes.where(choice: '2').count
   end
 
 private
