@@ -11,9 +11,10 @@ class VotesController < ApplicationController
     @vote = @dilemma.votes.build_with_user(vote_params, current_user)
     if @vote.save
       flash[:notice] = 'You have voted'
-      redirect_to dilemmas_path
+      redirect_to dilemma_path(@dilemma)
     else
       if @vote.errors[:user]
+        # WHY IS THIS HERE???
         flash[:notice] = 'You have voted'
 
         redirect_to dilemmas_path, alert: 'You have already voted on this dilemma'
