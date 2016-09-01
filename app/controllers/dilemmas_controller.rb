@@ -29,6 +29,8 @@ class DilemmasController < ApplicationController
     @dilemma = Dilemma.find(params[:id])
     @vote1_count = @dilemma.votes.where(choice: '1').count
     @vote2_count = @dilemma.votes.where(choice: '2').count
+    @vote1_proportions = 100 * ((@vote1_count+1.0)/(@vote2_count+1.0))
+    @vote2_proportions = 100 * ((@vote2_count+1.0)/(@vote1_count+1.0))
   end
 
 private

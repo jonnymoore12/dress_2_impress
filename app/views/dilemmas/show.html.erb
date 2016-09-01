@@ -1,10 +1,15 @@
-<div class='dilemmadiv'>
-  <%= @dilemma.occasion %>
-  <%= image_tag(@dilemma.option1.url(:medium)) %>
-  <%= image_tag(@dilemma.option2.url(:medium)) %>
+<div class="container-fluid">
+    <h1 class='text-center' ><%= @dilemma.occasion %></br></h1>
+    <div class="container-fluid center-block" >
+      <div class='col-md-3 col-xs-3 col-md-offset-3 col-xs-offset-3'>
+        <h2 class='text-center'>Option 1: <%= @vote1_count %> votes</h2>
+        <%= image_tag @dilemma.option1.url(:large), style: "width: #{@vote1_proportions}%", class: "img-circle img-responsive center-block" %>
+      </div>
+      <div class='col-md-3 col-xs-3'>
+        <h2 class='text-center'>Option 2: <%= @vote2_count %> votes</h2>
+        <%= image_tag @dilemma.option2.url(:large), style: "width: #{@vote2_proportions}%", class: "img-circle img-responsive center-block" %>
+      </div>
+        <h1><%= link_to 'Next Dilemma', dilemmas_path, style: "" %><span class = 'glyphicon glyphicon-arrow-right' /></h1>
+    </div>
 
-  Option 1: <%= @vote1_count %>
-  Option 2: <%= @vote2_count %>
-  <%= link_to 'Next Dilemma', dilemmas_path %>
-
-</div>
+</div
