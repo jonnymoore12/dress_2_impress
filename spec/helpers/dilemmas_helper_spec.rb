@@ -11,13 +11,6 @@ require 'rails_helper'
 #   end
 # end
 
-def create_dilemma
-  Dilemma.create!(occasion: 'Restaurant first date'
-                  option1: Rails.root + 'spec/fixtures/Gok1.jpg'
-                  option2: Rails.root + 'spec/fixtures/Gok2.jpg'
-  )
-end
-
 RSpec.describe DilemmasHelper, type: :helper do
   # pending "add some examples to (or delete) #{__FILE__}"
 end

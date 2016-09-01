@@ -20,8 +20,8 @@ def sign_in(email: "test@gmail.com",
             password_confirmation: "password123")
   visit '/'
   click_link "Sign in"
-  fill_in "Email", with: 'test@gmail.com'
-  fill_in "Password", with: 'password123'
+  fill_in "Email", with: email
+  fill_in "Password", with: password
   click_button 'Log in'
 end
 
@@ -31,5 +31,13 @@ def add_dilemma
   fill_in 'Occasion', with: 'Restaurant first date'
   attach_file 'dilemma_option1', Rails.root + 'spec/fixtures/Gok1.jpg'
   attach_file 'dilemma_option2', Rails.root + 'spec/fixtures/Gok2.jpg'
+  click_button 'Create Dilemma'
+end
+
+def add_dilemma_with_only_one_file
+  visit '/'
+  click_button 'Add a dilemma'
+  fill_in 'Occasion', with: 'Restaurant first date'
+  attach_file 'dilemma_option1', Rails.root + 'spec/fixtures/Gok1.jpg'
   click_button 'Create Dilemma'
 end

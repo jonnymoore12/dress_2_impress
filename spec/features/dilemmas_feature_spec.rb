@@ -8,14 +8,16 @@ feature 'Dilemma' do
       expect(page).to have_button 'Add a dilemma'
     end
   end
+
   context 'dilemma has been added' do
     before do
-      Dilemma.create!(occasion: 'Restaurant first date')
+      sign_up
+      add_dilemma
     end
     it 'displays dilemma' do
       visit '/dilemmas'
       expect(page).to have_content 'Restaurant first date'
-      expect(page).not_to have_content 'This page is naked§'
+      expect(page).not_to have_content 'This page is naked'
     end
   end
 
@@ -44,6 +46,12 @@ feature 'Dilemma' do
     end
   end
 
-
-
+  context 'creating dilemma' do
+    scenario 'does not create dilemma if user does not add two photos' do
+      sign_up
+      add_dilemma_with_only_one_file
+      expect(page).not_to have_content 'Restaurant first date'
+      expect(page).not_to have_css "img[src*='Gok1.jpg']"
+    end
+  end
 end
