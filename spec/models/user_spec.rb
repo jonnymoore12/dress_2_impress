@@ -3,6 +3,11 @@ require 'rails_helper'
 describe User, type: :model do
   it { is_expected.to have_many :dilemmas }
   it { is_expected.to have_many :voted_dilemmas }
+
+  describe '#has voted?' do
+    # to be added (it works!)
+  end
+
   describe 'Dilemma' do
     let!(:user){ User.create! email: 'test@test.com', password: '123123', name: 'test' }
     let!(:dilemma_params){ {occasion: 'wedding'} }
@@ -14,4 +19,5 @@ describe User, type: :model do
       expect(dilemma.user).to eq user
     end
   end
+
 end
