@@ -7,19 +7,20 @@
 
   <% @dilemmas.each do |dilemma| %>
 
-  <div>
+
     <% if current_user %>
       <% if !current_user.has_voted?(dilemma) %>
         <div class='dilemmadiv'>
-        <h3> <%= dilemma.occasion %> </h3>
-        <%= form_tag(dilemma_votes_path(dilemma), :method=>'post') do |f| %>
-          <%= image_submit_tag(dilemma.option1.url(:medium), name: "choice", value: 1) %>
-          <%= image_submit_tag(dilemma.option2.url(:medium), name: "choice", value: 2)%>
+          <h3> <%= dilemma.occasion %> </h3>
+          <%= form_tag(dilemma_votes_path(dilemma), :method=>'post') do |f| %>
+            <%= image_submit_tag(dilemma.option1.url(:medium), name: "choice", value: 1) %>
+            <%= image_submit_tag(dilemma.option2.url(:medium), name: "choice", value: 2)%>
+          <% end %>
           Option 1: <%=dilemma.votes.where(choice:'1').count%>
           Option 2: <%=dilemma.votes.where(choice:'2').count%>
         </div>
-        <% end %>
       <% end %>
+
     <% else %>
 
 
@@ -27,10 +28,13 @@
       <%= form_tag(dilemma_votes_path(dilemma), :method=>'post') do |f| %>
         <%= image_submit_tag(dilemma.option1.url(:medium), name: "choice", value: 1) %>
         <%= image_submit_tag(dilemma.option2.url(:medium), name: "choice", value: 2)%>
+
       <% end %>
+      Option 1: <%=dilemma.votes.where(choice:'1').count%>
+      Option 2: <%=dilemma.votes.where(choice:'2').count%>
+
+
     <% end %>
-    Option 1: <%=dilemma.votes.where(choice:'1').count%>
-    Option 2: <%=dilemma.votes.where(choice:'2').count%>
   <% end %>
 
 <% else %>
