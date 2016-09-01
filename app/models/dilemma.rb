@@ -10,5 +10,5 @@ class Dilemma < ActiveRecord::Base
   has_many :votes,
             -> { extending WithUserAssociationExtension },
             dependent: :destroy
-
+            #test comment
 end
