@@ -13,6 +13,7 @@ class VotesController < ApplicationController
       redirect_to dilemmas_path
     else
       if @vote.errors[:user]
+        # WHY IS THIS HERE???
         flash[:notice] = 'You have voted'
 
         redirect_to dilemmas_path, alert: 'You have already voted on this dilemma'
