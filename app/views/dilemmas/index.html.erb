@@ -10,12 +10,10 @@
         <%= image_submit_tag(@dilemmas_not_yet_voted[0].option2.url(:medium), name: "choice", value: 2) %>
       </div>
       <% end %>
-      <% else %>
-        <%= flash[:alert] = 'No more dilemmas. The world is fashionable!' %>
-      <% end %>
+    <% else %>
+      <%= flash[:alert] = 'No more dilemmas. The world is fashionable!' %>
+    <% end %>
   <% end %>
-  <% else %>
-  This page is naked.
-
-  ADD INSTRUCTIONS HERE FOR USERS NOT SIGNED IN
+<% else %>
+  This page is naked. ADD INSTRUCTIONS FOR USERS NOT SIGNED.
 <% end %>
