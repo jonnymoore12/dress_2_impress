@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true
+
+  def has_voted?(dilemma)
+    voted_dilemmas.include? dilemma
+  end
 end

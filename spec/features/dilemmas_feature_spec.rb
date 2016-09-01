@@ -7,6 +7,7 @@ feature 'Dilemma' do
       expect(page).to have_content 'This page is naked'
     end
   end
+
   context 'Dilemma has been added' do
     before do
       Dilemma.create!(occasion: 'Restaurant first date')
@@ -49,6 +50,19 @@ feature 'Dilemma' do
       sign_up
       expect(current_path).to eq '/'
       expect(page).not_to have_content 'Add a dilemma'
+    end
+  end
+
+  context 'Displaying dilemmas' do
+    scenario 'Signed in user does not see dilemmas they have already voted on' do
+      sign_up
+      add_dilemma
+      add_dilemma("Cinema date")
+      click_link 'Sign out'
+      sign_up(name: "test2", email: "else@test.com", password: "123456", password_confirmation: "123456")
+      first('.dilemmadiv').click_button('1')
+      expect(page).not_to have_content 'Restaurant first date'
+      expect(page).to have_content('Cinema date')
     end
   end
 end

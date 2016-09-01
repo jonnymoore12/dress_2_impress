@@ -25,10 +25,10 @@ def sign_in(email: "test@gmail.com",
   click_button 'Log in'
 end
 
-def add_dilemma
+def add_dilemma(occasion = 'Restaurant first date')
   visit '/'
   click_button 'Add a dilemma'
-  fill_in 'Occasion', with: 'Restaurant first date'
+  fill_in 'Occasion', with: occasion
   attach_file 'dilemma_option1', Rails.root + 'spec/fixtures/Gok1.jpg'
   attach_file 'dilemma_option2', Rails.root + 'spec/fixtures/Gok2.jpg'
   click_button 'Create Dilemma'
