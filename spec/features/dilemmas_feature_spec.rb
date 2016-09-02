@@ -54,12 +54,19 @@ feature 'Dilemma' do
     end
   end
 
-  context 'No user signed in' do
+  context 'User not signed in' do
     scenario 'User cannot add a dilemma' do
       visit '/'
       expect(current_path).to eq '/'
       expect(page).not_to have_content 'Add a dilemma'
+
     end
+    scenario 'user cannot see dilemmas' do
+      visit '/'
+      expect(page).to have_content 'This page is naked'
+      expect(page).not_to have_content 'wedding'
+    end
+
   end
 
   context 'Displaying dilemmas' do
