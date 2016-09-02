@@ -10,11 +10,11 @@ feature 'Dilemma' do
 
   context 'Dilemma has been added' do
     before do
-      Dilemma.create!(occasion: 'Restaurant first date')
-    end
-    it 'displays dilemma' do
-      visit '/dilemmas'
       sign_up
+      add_dilemma
+    end
+
+    it 'displays dilemma' do
       expect(page).to have_content 'Restaurant first date'
       expect(page).not_to have_content 'This page is naked'
     end
@@ -43,6 +43,15 @@ feature 'Dilemma' do
       expect(page).not_to have_css "img[src*='Gok2.jpg']"
       expect(current_path).to eq @current_path
 
+    end
+  end
+
+  context 'creating dilemma' do
+    scenario 'does not create dilemma if user does not add two photos' do
+      sign_up
+      add_dilemma_with_only_one_file
+      expect(page).not_to have_content 'Restaurant first date'
+      expect(page).not_to have_css "img[src*='Gok1.jpg']"
     end
   end
 

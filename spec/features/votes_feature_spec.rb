@@ -6,8 +6,8 @@ feature 'Votes' do
   scenario 'Allows users to vote on a dilemma' do
     visit '/dilemmas'
     sign_up
+    add_dilemma
     click_button '1'
-    expect(current_path).to eq "/dilemmas/#{dilemma.id}"
     expect(page).to have_content('You have voted')
   end
 
