@@ -1,13 +1,18 @@
-Welcome to <%=@user.name%>'s wardrobe.
-<br />
+<div style= "font-family: Permanent Marker; text-align: center">  <h2>Welcome to <%=@user.name%>'s wardrobe.</h2>
+<br>
 <% if @user.dilemmas.all.empty? %>
   <%=@user.name%>'s wardrobe is empty :(
 <% else %>
   <% @user.dilemmas.all.each do |dilemma|%>
+
     <%= image_tag(dilemma.option1.url(:medium), :class => "img-rounded well", id: 'option1') %>
     <%= image_tag(dilemma.option2.url(:medium), :class => "img-rounded well", id: 'option2') %>
     <br />
     <%= dilemma.occasion %>
+
     <%= link_to "Delete", dilemma_path(dilemma), method: :delete %>
+    <br>
+    <br>
   <% end %>
+</div>
 <% end %>

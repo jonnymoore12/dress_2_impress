@@ -1,10 +1,21 @@
 .navbar-cool {
-    background-color: red;
-    color: yellow;
-
+    background-color:rgb(233, 232, 232);
+    color: rgb(50, 129, 201);
+    font-family: 'Permanent Marker';
 }
 
 .navbar-cool a {
-  color: yellow;
+  color: rgb(50, 129, 201);
+}
 
+.panel-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color:rgb(233, 232, 232);
+  color: rgb(50, 129, 201);
+  font-family: 'Permanent Marker'
 }
