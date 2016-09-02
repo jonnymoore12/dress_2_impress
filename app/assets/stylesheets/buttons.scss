@@ -1,4 +1,6 @@
 
 .tacky-btn {
-    @include button-variant(red, black, white);
+    @include button-variant(rgb(50, 129, 201), rgb(233, 232, 232), white);
+    font-family: 'Permanent Marker';
+    text-align: center;
 }

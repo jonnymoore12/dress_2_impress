@@ -1,5 +1,7 @@
 <% if user_signed_in? %>
+<div style="text-align: center">
   <%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn tacky-btn" %>
+</div>
   <% if @dilemmas.any? %>
     <% @dilemmas_not_yet_voted = @dilemmas.select { |dilemma| current_user.has_voted?(dilemma) == false } %>
     <% if !@dilemmas_not_yet_voted.empty? %>
