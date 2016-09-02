@@ -1,0 +1,7 @@
+<%= form_for @dilemma do |f| %>
+<%= f.cropbox :option1 %>
+<%= f.crop_preview :option1 %>
+<%= f.cropbox :option2 %>
+<%= f.crop_preview :option2 %>
+<%= f.submit 'Save' %>
+<% end %>
