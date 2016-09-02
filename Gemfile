@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 gem 'rspec-rails'
 gem 'capybara'
 gem 'paperclip'
-
 gem 'devise'
+gem 'papercrop'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'

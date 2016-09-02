@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :dilemmas do
+    post 'crop', :on => :member
     resources :votes
   end
   # Example resource route with options:
