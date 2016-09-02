@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 gem 'rspec-rails'
 gem 'capybara'
 gem 'paperclip'
-
 gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.2.0'
