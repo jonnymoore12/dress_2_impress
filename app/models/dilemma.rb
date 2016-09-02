@@ -7,6 +7,8 @@ class Dilemma < ActiveRecord::Base
   crop_attached_file :option2, :aspect => "4:5"
   validates_attachment_content_type :option2, :content_type => /\Aimage\/.*\Z/
 
+  # validates_presence_of :option1, :option2
+
   belongs_to :user
 
   has_many :votes,

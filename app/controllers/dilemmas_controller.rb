@@ -11,7 +11,7 @@ class DilemmasController < ApplicationController
 
   def create
     @dilemma = current_user.dilemmas.new(dilemma_params)
-    if @dilemma.save
+    if @dilemma.save# && params[:option1].present? && params[:option2].present?
       render 'crop'
     else
       render 'new'
