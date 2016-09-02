@@ -6,6 +6,7 @@
       <% @dilemmas_not_yet_voted = @dilemmas.select { |dilemma| current_user.has_voted?(dilemma) == false } %>
       <% if !@dilemmas_not_yet_voted.empty? %>
         <div class="container-fluid center-block">
+        <h4 class='text-center', style="font-family: Permanent Marker; color: rgb(50, 129, 201)" ><%= @dilemmas_not_yet_voted[0].user.name %> needs your help with their upcoming ...<br /></h4>
         <h1 class='text-center' ><%= @dilemmas_not_yet_voted[0].occasion %><br /></h1>
         <%= form_tag(dilemma_votes_path(@dilemmas_not_yet_voted[0]), :method=>'post') do |f| %>
         <div class='col-md-3 col-xs-3 col-md-offset-3 col-xs-offset-3'>
