@@ -1,19 +1,38 @@
-<% if user_signed_in? %>
-  <%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn tacky-btn" %>
-  <% if @dilemmas.any? %>
-    <% @dilemmas_not_yet_voted = @dilemmas.select { |dilemma| current_user.has_voted?(dilemma) == false } %>
-    <% if !@dilemmas_not_yet_voted.empty? %>
-      <div class='dilemmadiv'>
-      <h3> <%= @dilemmas_not_yet_voted[0].occasion %> </h3>
-      <%= form_tag(dilemma_votes_path(@dilemmas_not_yet_voted[0]), :method=>'post') do |f| %>
-        <%= image_submit_tag(@dilemmas_not_yet_voted[0].option1.url(:medium), name: "choice", value: 1) %>
-        <%= image_submit_tag(@dilemmas_not_yet_voted[0].option2.url(:medium), name: "choice", value: 2) %>
+      <!-- <div class='dilemmadiv'>
+
+
+      </div> -->
+
+
+
+<div class="container-fluid marker-font", style="font-family: Permanent Marker; color: rgb(0, 0, 0)">
+  <% if user_signed_in? %>
+    <h1 class='text-center'><%= button_to "Add a dilemma", new_dilemma_path, method: :get, :class => "btn tacky-btn" %></h1>
+    <% if @dilemmas.any? %>
+      <% @dilemmas_not_yet_voted = @dilemmas.select { |dilemma| current_user.has_voted?(dilemma) == false } %>
+      <% if !@dilemmas_not_yet_voted.empty? %>
+        <div class="container-fluid center-block">
+        <h1 class='text-center' ><%= @dilemmas_not_yet_voted[0].occasion %><br /></h1>
+        <%= form_tag(dilemma_votes_path(@dilemmas_not_yet_voted[0]), :method=>'post') do |f| %>
+        <div class='col-md-3 col-xs-3 col-md-offset-3 col-xs-offset-3'>
+          <%= image_submit_tag(@dilemmas_not_yet_voted[0].option1.url(:medium), name: "choice", value: 1, class: "img-circle img-responsive center-block") %>
+        </div>
+        <div class='col-md-3 col-xs-3'>
+          <%= image_submit_tag(@dilemmas_not_yet_voted[0].option2.url(:medium), name: "choice", value: 2, class: "img-circle img-responsive center-block") %>
+        </div>
+        </div>
+        <% end %>
+        <br />
+        <h4 class='text-center' >Click on the most fashionable picture!<br /></h4>
+      <% else %>
+      <div class="text-center">
+        <%= flash[:alert] = 'No more dilemmas. The world is fashionable!' %>
       </div>
+
       <% end %>
-    <% else %>
-      <%= flash[:alert] = 'No more dilemmas. The world is fashionable!' %>
+
     <% end %>
+  <% else %>
+    This page is naked. ADD INSTRUCTIONS FOR USERS NOT SIGNED.
   <% end %>
-<% else %>
-  This page is naked. ADD INSTRUCTIONS FOR USERS NOT SIGNED.
-<% end %>
+</div>
