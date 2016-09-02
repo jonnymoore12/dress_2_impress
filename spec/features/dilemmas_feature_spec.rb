@@ -28,9 +28,8 @@ feature 'Dilemma' do
     end
     scenario 'User can add a dilemma' do
       expect(page).to have_content 'Restaurant first date'
-      expect(page).to have_css "input[src*='Gok1.jpg']"
-      expect(page).to have_css "input[src*='Gok2.jpg']"
-      expect(current_path).to eq '/dilemmas'
+      expect(page.find('#option1')['alt']).to have_content 'Gok1'
+      expect(page.find('#option2')['alt']).to have_content 'Gok2'
     end
 
     scenario 'user can delete their own dilemma' do
@@ -55,12 +54,19 @@ feature 'Dilemma' do
     end
   end
 
-  context 'No user signed in' do
+  context 'User not signed in' do
     scenario 'User cannot add a dilemma' do
       visit '/'
       expect(current_path).to eq '/'
       expect(page).not_to have_content 'Add a dilemma'
+
     end
+    scenario 'user cannot see dilemmas' do
+      visit '/'
+      expect(page).to have_content 'This page is naked'
+      expect(page).not_to have_content 'wedding'
+    end
+
   end
 
   context 'Displaying dilemmas' do
@@ -69,18 +75,17 @@ feature 'Dilemma' do
       add_dilemma
     end
 
-    xscenario 'Signed in user does not see dilemmas they have already voted on' do
+    scenario 'Signed in user does not see dilemmas they have already voted on' do
       click_link 'Sign out'
       sign_up(name: "test2", email: "else@test.com", password: "123456", password_confirmation: "123456")
       first('.dilemmadiv').click_button('1')
-      #BELOW LINE WILL WORK WHEN SAM AND ALBIE IMPLEMENT VOTE REDIRECT
-      click_button 'Next dilemma'
+      click_link 'Next dilemma'
       expect(page).not_to have_content 'Restaurant first date'
-      expect(page).to have_content 'No more dilemmas'
     end
 
     scenario 'Dilemmas are displayed one at a time' do
       add_dilemma(occasion: "Cinema date")
+      visit '/dilemmas'
       expect(page).to have_content "Restaurant first date"
       expect(page).not_to have_content "Cinema date"
     end

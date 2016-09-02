@@ -4,11 +4,12 @@
   <%=@user.name%>'s wardrobe is empty :(
 <% else %>
   <% @user.dilemmas.all.each do |dilemma|%>
-    <h3><%= dilemma.occasion %></h3>
-    <br>
-    <%= image_tag(dilemma.option1.url(:medium), :class => "img-rounded well") %>
-    <%= image_tag(dilemma.option2.url(:medium), :class => "img-rounded well") %>
-    <br>
+
+    <%= image_tag(dilemma.option1.url(:medium), :class => "img-rounded well", id: 'option1') %>
+    <%= image_tag(dilemma.option2.url(:medium), :class => "img-rounded well", id: 'option2') %>
+    <br />
+    <%= dilemma.occasion %>
+
     <%= link_to "Delete", dilemma_path(dilemma), method: :delete %>
     <br>
     <br>

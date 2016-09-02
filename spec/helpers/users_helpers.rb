@@ -32,6 +32,7 @@ def add_dilemma(occasion = 'Restaurant first date')
   attach_file 'dilemma_option1', Rails.root + 'spec/fixtures/Gok1.jpg'
   attach_file 'dilemma_option2', Rails.root + 'spec/fixtures/Gok2.jpg'
   click_button 'Create Dilemma'
+  click_button 'Save'
 end
 
 def add_dilemma_with_only_one_file
