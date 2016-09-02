@@ -11,6 +11,7 @@
           <li><%= link_to "Sign in", new_user_session_path %></li>
           <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% else %>
+          <li class= "navbar-brand"><%= current_user.name %> is styling the world one dilemma at a time... </li>
           <li><%= link_to "Wardrobe", user_path(current_user) %></li>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% end %>
