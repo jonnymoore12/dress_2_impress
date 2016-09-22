@@ -5,6 +5,7 @@ gem 'paperclip'
 gem 'devise'
 gem 'papercrop'
 gem 'aws-sdk'
+gem 'rails_12factor', group: :production
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'dotenv'
