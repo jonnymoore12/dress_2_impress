@@ -3,7 +3,7 @@
 Fashion dilemma app made during the Makerthon week of Makers Academy (Week 9).
 
 ### Team
- - Alban Allen [(@albiebaby)](https://github.com/albiebaby)
+ - Alban Allen [(@albiebabie)](https://github.com/albiebabie)
  - Sam Broughton [(@samjbro)](https://github.com/samjbro)
  - Julie Leverington [(@JulieLev)](https://github.com/JulieLev)
  - Jonny Moore [(@jonnymoore12)](https://github.com/jonnymoore12)
